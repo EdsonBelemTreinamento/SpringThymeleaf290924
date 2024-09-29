@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container row col-md-8 offset-md-2">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center">Create Users</h2>
+        </div>
+        <div class="card-body">
+		<form method="post" role="form" th:action="@{/cadastrar}" th:object="${users}">
+			<div class="form-groub mb-3">
+			 <label class="form-label">Name</label>	
+			 <input class="form-control" id="name" name="name" placeholder="entrar com nome"
+			  type="text" th:field="*{name}"  />	
+			</div>
+			<div class="form-groub mb-3">
+			 <label class="form-label">Email</label>	
+			 <input class="form-control" id="email" name="email" placeholder="entrar com email"  type="text" th:field="*{email}"  />	
+			</div>
+			<div class="form-groub mb-3">
+			 <label class="form-label">password</label>	
+			 <input class="form-control" id="password" name="password" placeholder="entrar com password"  type="password" th:field="*{password}"  />	
+			</div>
+			
+			<button class="btn btn-primary" type="submit">Submit</button>
+		 </form>
+           <p th:if="${message}" th:text="${message}"></p>
+	
+    </div>
+  </div>
+</div>
+
+</body>
+</html>  
